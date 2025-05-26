@@ -156,7 +156,7 @@ export function EmployeeFilter({
           
           {searchTerm && (
             <Badge variant="secondary" className="flex items-center gap-1">
-              "{searchTerm}"
+              {'"'}{searchTerm}{'"'}
               <X
                 className="h-3 w-3 cursor-pointer"
                 onClick={() => setSearchTerm('')}

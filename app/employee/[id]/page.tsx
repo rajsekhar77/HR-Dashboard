@@ -416,7 +416,7 @@ export default function EmployeeDetailsPage() {
                           </span>
                         </div>
                         <p className="text-sm text-muted-foreground mb-2">
-                          "{item.comment}"
+                          {'"'}{item.comment}{'"'}
                         </p>
                         <div className="text-sm text-muted-foreground">
                           Reviewed by: {item.reviewer}
