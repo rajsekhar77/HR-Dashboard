@@ -286,9 +286,9 @@ export default function EmployeeDetailsPage() {
         <Card className="lg:col-span-2">
           <Tabs defaultValue="overview" className="w-full">
             <CardHeader>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <CardTitle>Employee Details</CardTitle>
-                <TabsList>
+                <TabsList className='flex justify-between'>
                   <TabsTrigger value="overview">Overview</TabsTrigger>
                   <TabsTrigger value="projects">Projects</TabsTrigger>
                   <TabsTrigger value="feedback">Feedback</TabsTrigger>

@@ -1,38 +1,51 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { ModeToggle } from "@/components/theme-toggle"
-import { UserCircle, Search, Bell } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { ModeToggle } from "@/components/theme-toggle";
+import { UserCircle, Search, Bell } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const pathname = usePathname()
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
   // const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className={cn(
-      "sticky top-0 z-40 w-full transition-all duration-200  px-4 md:px-6 lg:px-8",
-      isScrolled ? "bg-background/90 backdrop-blur-sm border-b" : "bg-transparent"
-    )}>
+    <header
+      className={cn(
+        "sticky top-0 z-40 w-full transition-all duration-200  px-4 md:px-6 lg:px-8",
+        isScrolled
+          ? "bg-background/90 backdrop-blur-sm border-b"
+          : "bg-transparent"
+      )}
+    >
       <div className="container flex h-16 items-center justify-between py-4">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
-            <UserCircle className="h-6 w-6" />
-            <span className="font-bold text-lg hidden md:inline-block">HR Dashboard</span>
+            <Image
+              src="/logo.svg"
+              alt="HR Dashboard Logo"
+              width={24}
+              height={24}
+              className="h-6 w-6"
+            />
+            <span className="font-bold text-lg hidden md:inline-block">
+              HR Dashboard
+            </span>
           </Link>
         </div>
 
@@ -51,7 +64,7 @@ export default function Header() {
             </div>
           )}
         </div> */}
-        
+
         <div className="flex items-center gap-2">
           {/* {pathname === "/" && (
             <Button
@@ -72,5 +85,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }
